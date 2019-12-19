@@ -8,6 +8,26 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      chosenComponent: "A"
+    };
+  },
+  computed: {
+    instanceComponent() {
+      return `Component${this.chosenComponent}`;
+    }
+  },
+  methods: {
+    toggleComponent() {
+      this.chosenComponent = this.chosenComponent === "A" ? "B" : "A";
+    }
+  }
+};
+</script>
+
 <style lang="scss">
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;

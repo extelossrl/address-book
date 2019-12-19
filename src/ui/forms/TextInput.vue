@@ -2,6 +2,7 @@
   <label
     >{{ label }}
     <input
+      v-bind="$attrs"
       type="text"
       :value="value"
       @input="$emit('input', $event.target.value)"
@@ -11,6 +12,7 @@
 
 <script>
 export default {
+  inheritAttrs: false,
   props: {
     value: {
       type: String,

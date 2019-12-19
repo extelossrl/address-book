@@ -23,8 +23,20 @@ export default {
     };
   },
   methods: {
-    saveData(data) {
-      console.log("dati salvati ", data);
+    /**
+     * @param data attributi del contatto al click del pulsante di salvataggio
+     * @example {
+     *  name: "ciao",
+     *  surname: "pippo",
+     *  age: 34
+     * }
+     */
+    async saveData(data) {
+      try {
+        await this.$store.dispatch("contacts/saveContact", data);
+      } catch (error) {
+        console.error({ error });
+      }
     }
   }
 };

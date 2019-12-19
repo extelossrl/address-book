@@ -1,17 +1,13 @@
 import axios from "axios";
 
 export default {
-  get(url, auth = true) {
-    let config = {};
-
-    if (auth) {
-      config = {
-        headers: {
-          "Auth..": auth
-        }
-      };
-    }
-
-    return axios.get(url, config).then(res => res.data);
+  get(url) {
+    return axios.get(url).then(res => res.data);
+  },
+  post(url, params) {
+    return axios.post(url, params).then(res => res.data);
+  },
+  patch(url, params) {
+    return axios.patch(url, params).then(res => res.data);
   }
 };

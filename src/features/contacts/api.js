@@ -7,5 +7,11 @@ export default {
   },
   getContact(id) {
     return api.get(`${BASE_URL}/${id}`);
+  },
+  saveContact(contact) {
+    return api.post(BASE_URL, contact);
+  },
+  updateContact(contact) {
+    return api.patch(`${BASE_URL}/${contact.id}`, { ...contact, id: undefined });
   }
 };

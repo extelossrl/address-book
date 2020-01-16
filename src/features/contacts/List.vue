@@ -1,30 +1,54 @@
 <template>
-  <main-list>
-    <main-list-item
-      v-for="(contact, index) in contacts"
-      :key="index"
-      :primaryText="contact.name"
-      :secondaryText="contact.phone"
-    />
-  </main-list>
+  <main-table
+    :data="contacts"
+    :columns="columns"
+    :loading="loading"
+    @click="$emit('navigateTo', $event)"
+  />
 </template>
 
 <script>
-import MainListItem from "@/ui/lists/MainListItem";
-import MainList from "@/ui/lists/MainList";
+import MainTable from "@/ui/lists/MainTable";
 
 export default {
   components: {
-    MainListItem,
-    MainList
+    MainTable
+  },
+  data() {
+    return {
+      columns: [
+        {
+          field: "name",
+          label: this.$t("addressBook.fields.name"),
+          searchable: true,
+          sortable: true
+        },
+        {
+          field: "surname",
+          label: this.$t("addressBook.fields.surname"),
+          searchable: true,
+          sortable: true
+        },
+        {
+          field: "phone",
+          label: this.$t("addressBook.fields.phone"),
+          searchable: true,
+          sortable: true
+        }
+      ]
+    };
   },
   props: {
+    loading: {
+      type: Boolean
+    },
     contacts: {
-      /** 
-       * @example {
+      // Use JSDoc when your code isn't enough explicit
+      /**
+       * @example [{
           name: "Gorrini",
           phone: "33213213"
-        }
+        }]
       */
       type: Array
     }

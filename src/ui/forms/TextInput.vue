@@ -1,13 +1,12 @@
 <template>
-  <label
-    >{{ label }}
-    <input
+  <b-field :label="label" expanded>
+    <b-input
       v-bind="$attrs"
       type="text"
       :value="value"
-      @input="$emit('input', $event.target.value)"
+      @input="$emit('input', $event)"
     />
-  </label>
+  </b-field>
 </template>
 
 <script>

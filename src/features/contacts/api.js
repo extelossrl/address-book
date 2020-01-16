@@ -12,6 +12,9 @@ export default {
     return api.post(BASE_URL, contact);
   },
   updateContact(contact) {
-    return api.patch(`${BASE_URL}/${contact.id}`, { ...contact, id: undefined });
+    return api.patch(`${BASE_URL}/${contact.id}`, {
+      ...contact,
+      id: undefined
+    });
   }
 };

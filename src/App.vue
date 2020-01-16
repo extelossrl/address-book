@@ -1,52 +1,35 @@
 <template>
+  <!-- THE FIRST DIV WITH ID app IS A GOOD CONVENTION FOR SSR, LET HIM SURVIVE -->
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <!-- BE DECLARATIVE, DON'T USE HTML -->
+    <app-layout>
+      <template v-slot:header>
+        <main-navbar :items="navbarItems" />
+      </template>
+      <router-view />
+    </app-layout>
   </div>
 </template>
 
 <script>
+import AppLayout from "@/ui/layouts/AppLayout";
+import MainNavbar from "@/ui/lists/MainNavbar";
+
 export default {
+  components: {
+    AppLayout,
+    MainNavbar
+  },
   data() {
     return {
-      chosenComponent: "A"
+      // if you need some data only locally, put them in the data without using the store
+      navbarItems: [
+        {
+          to: "/contacts/new",
+          label: this.$t("addressBook.new")
+        }
+      ]
     };
-  },
-  computed: {
-    instanceComponent() {
-      return `Component${this.chosenComponent}`;
-    }
-  },
-  methods: {
-    toggleComponent() {
-      this.chosenComponent = this.chosenComponent === "A" ? "B" : "A";
-    }
   }
 };
 </script>
-
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>

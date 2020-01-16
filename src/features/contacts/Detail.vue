@@ -1,14 +1,31 @@
 <template>
   <main-form>
-    <text-input v-model="value.name" label="name" :disabled="!editEnabled" />
     <text-input
-      v-model="value.surname"
-      label="surname"
+      v-model="value.name"
+      :label="$t('addressBook.fields.name')"
       :disabled="!editEnabled"
     />
-    <number-input v-model="value.age" label="age" :disabled="!editEnabled" />
-    <main-button v-if="!editEnabled" text="edit" @click="changeEnabled" />
-    <main-button v-else text="save" @click="updateAction" />
+    <text-input
+      v-model="value.surname"
+      :label="$t('addressBook.fields.surname')"
+      :disabled="!editEnabled"
+    />
+    <number-input
+      v-model="value.age"
+      :label="$t('addressBook.fields.age')"
+      :disabled="!editEnabled"
+    />
+    <text-input
+      v-model="value.phone"
+      :label="$t('addressBook.fields.phone')"
+      :disabled="!editEnabled"
+    />
+    <main-button
+      v-if="!editEnabled"
+      :text="$t('addressBook.edit')"
+      @click="changeEnabled"
+    />
+    <main-button v-else :text="$t('addressBook.save')" @click="updateAction" />
   </main-form>
 </template>
 
@@ -51,7 +68,6 @@ export default {
   watch: {
     successful: {
       handler(newval, oldval) {
-        console.log({ oldval, newval });
         if (oldval === false && newval === true) {
           this.changeEnabled();
         }

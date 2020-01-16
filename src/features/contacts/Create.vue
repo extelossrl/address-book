@@ -1,9 +1,16 @@
 <template>
   <main-form>
-    <text-input v-model="value.name" label="name" />
-    <text-input v-model="value.surname" label="surname" />
-    <number-input v-model="value.age" label="age" />
-    <main-button text="save" @click="$emit('saveData', value)" />
+    <text-input v-model="value.name" :label="$t('addressBook.fields.name')" />
+    <text-input
+      v-model="value.surname"
+      :label="$t('addressBook.fields.surname')"
+    />
+    <text-input v-model="value.phone" :label="$t('addressBook.fields.phone')" />
+    <number-input v-model="value.age" :label="$t('addressBook.fields.age')" />
+    <main-button
+      :text="$t('addressBook.save')"
+      @click="$emit('saveData', value)"
+    />
   </main-form>
 </template>
 

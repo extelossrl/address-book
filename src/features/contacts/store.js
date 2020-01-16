@@ -3,14 +3,21 @@ import api from "@/features/contacts/api";
 export default {
   namespaced: true,
   state: {
-    contacts: []
+    contacts: [],
+    currentContact: null
   },
   mutations: {
     SET_CONTACTS(state, value) {
       state.contacts = value;
+    },
+    SET_CURRENT_CONTACT(state, value) {
+      state.currentContact = value;
     }
   },
   actions: {
+    async getContact(context, id) {
+      context.commit("SET_CURRENT_CONTACT", await api.getContact(id));
+    },
     async findContacts(context) {
       context.commit("SET_CONTACTS", await api.findContacts());
     },

@@ -1,73 +1,11 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "name": "Gorrini",
-      "phone": "33213213"
-    },
-    {
-      "id": 2,
-      "name": "Galeazzi",
-      "phone": "21313123"
-    },
-    {
-      "id": 3,
-      "name": "Andrea",
-      "phone": "32131231"
-    },
-    {
-      "name": "riccardo",
-      "surname": "gorrini",
-      "age": 31,
-      "id": 4
-    },
-    {
-      "name": "riccardo",
-      "surname": "gorrini",
-      "age": 31,
-      "id": 5
-    },
-    {
-      "name": "ciao",
-      "surname": "pippo",
+      "name": "hello",
+      "surname": "world",
+      "phone": "123456789",
       "age": 34,
-      "id": 6
-    },
-    {
-      "name": "ciao",
-      "surname": "pippo",
-      "age": 34,
-      "id": 7
-    },
-    {
-      "name": "dasd",
-      "surname": "pippdasdo",
-      "age": 34,
-      "id": 8
-    },
-    {
-      "name": "ciaodas",
-      "surname": "pippo",
-      "age": 34,
-      "id": 9
-    },
-    {
-      "name": "ciao",
-      "surname": "pippo",
-      "age": 34,
-      "id": 10
-    },
-    {
-      "name": "ciaodasda",
-      "surname": "pippo",
-      "age": 34,
-      "id": 11
-    },
-    {
-      "name": "ciaodasd",
-      "surname": "pippoas",
-      "age": 34,
-      "id": 12
+      "id": 1
     }
   ]
 }

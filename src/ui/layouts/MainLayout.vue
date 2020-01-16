@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <h1>{{ title }}</h1>
-    <slot></slot>
+  <div class="container has-text-centered">
+    <h1 class="title">
+      {{ title }}
+    </h1>
+    <slot />
   </div>
 </template>
 

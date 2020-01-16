@@ -1,5 +1,5 @@
 <template>
-  <li>{{ primaryText }} - {{ secondaryText }}</li>
+  <li @click="$emit('click')">{{ primaryText }} - {{ secondaryText }}</li>
 </template>
 
 <script>
